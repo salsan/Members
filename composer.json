@@ -1,0 +1,18 @@
+{
+    "name": "salsan/members",
+    "description": "Library to get data about chess members from website Federazione Scacchistica Italiana",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Salsan\\Members\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Salvatore Santagati",
+            "email": "github@salsan.dev"
+        }
+    ],
+    "require": {}
+}
