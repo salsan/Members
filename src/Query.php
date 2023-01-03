@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Salsan\Members;
 
 use DOMDocument;
@@ -14,21 +16,21 @@ class Query
         $this->dom = new DOMDocument();
         libxml_use_internal_errors(true);
 
-        $this->id = $params['id'] ?? '';
-        $this->cgn = $params['surname'] ?? '';
-        $this->gen = $params['gender'] ?? '';
-        $this->an1 = $params['bornFrom'] ?? '';
-        $this->an2 = $params['bornTo'] ?? '';
-        $this->cat = $params['category'] ?? '';
-        $this->pro = $params['province'] ?? '';
-        $this->reg = $params['region'] ?? '';
-        $this->socpro = $params['clubProvince'] ?? '';
-        $this->socreg = $params['clubRegion'] ?? '';
-        $this->cir = $params['clubId'] ?? '';
-        $this->anno = $params['membershipYear'] ?? '';
-        $this->tiptes = $params['membershipType'] ?? '';
-        $this->ord = $params['order'] ?? '';
-        $this->senso = $params['sense'] ?? '';
+        $id = $params['id'] ?? '';
+        $cgn = $params['surname'] ?? '';
+        $gen = $params['gender'] ?? '';
+        $an1 = $params['bornFrom'] ?? '';
+        $an2 = $params['bornTo'] ?? '';
+        $cat = $params['category'] ?? '';
+        $pro = $params['province'] ?? '';
+        $reg = $params['region'] ?? '';
+        $socpro = $params['clubProvince'] ?? '';
+        $socreg = $params['clubRegion'] ?? '';
+        $cir = $params['clubId'] ?? '';
+        $anno = $params['membershipYear'] ?? '';
+        $tiptes = $params['membershipType'] ?? '';
+        $ord = $params['order'] ?? '';
+        $senso = $params['sense'] ?? '';
 
         $curl = curl_init();
 
@@ -42,20 +44,20 @@ class Query
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
-                'id' => $this->id,
-                'cgn' => $this->cgn,
-                'gen' => $this->gen,
-                'an1' => $this->an1,
-                'an2' => $this->an2,
-                'cat' => $this->cat,
-                'pro' => $this->pro,
-                'reg' => $this->reg,
-                'socpro' => $this->socpro,
-                'socreg' => $this->socreg,
-                'cir' => $this->cir,
-                'anno' => $this->anno,
-                'ord' => $this->ord,
-                'senso' => $this->senso,
+                'id' => $id,
+                'cgn' => $cgn,
+                'gen' => $gen,
+                'an1' => $an1,
+                'an2' => $an2,
+                'cat' => $cat,
+                'pro' => $pro,
+                'reg' => $reg,
+                'socpro' => $socpro,
+                'socreg' => $socreg,
+                'cir' => $cir,
+                'anno' => $anno,
+                'ord' => $ord,
+                'senso' => $senso,
                 'ric' => '1'
             ),
         ));
@@ -67,7 +69,7 @@ class Query
         $this->dom->loadHTML($response);
     }
 
-    public function getNumber()
+    public function getNumber(): array
     {
         $row = $this->dom
             ->getElementsByTagName("table")
