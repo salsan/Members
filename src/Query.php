@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Salsan\Members;
 
+use Salsan\Utils\String\HiddenSpaceTrait;
+
 use DOMDocument;
 
 class Query
 {
+    use HiddenSpaceTrait;
+
     private DOMDocument $dom;
     private string $url = "https://www.federscacchi.it/str_tess.php";
 
@@ -104,9 +108,9 @@ class Query
                 //  id
                 $id = $user->getElementsByTagName("td")[0]->textContent;
                 //  Surname and Name
-                $members[$id]["name"] = $user->getElementsByTagName(
+                $members[$id]["name"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[1]->textContent;
+                )[1]->textContent);
                 // Rookie (boolean)
                 $members[$id]["isRookie"] = (bool) $user->getElementsByTagName("td")[2]
                     ->textContent;
@@ -131,9 +135,9 @@ class Query
                     "td",
                 )[7]->textContent;
                 //  region
-                $members[$id]["region"] = $user->getElementsByTagName(
+                $members[$id]["region"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[8]->textContent;
+                )[8]->textContent);
                 //  citizenship
                 $members[$id]["citizenship"] = $user->getElementsByTagName(
                     "td",
@@ -143,21 +147,21 @@ class Query
                     "td",
                 )[10]->textContent;
                 //  club name
-                $members[$id]["club_name"] = $user->getElementsByTagName(
+                $members[$id]["club_name"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[11]->textContent;
+                )[11]->textContent);
                 //  club city
-                $members[$id]["club_city"] = $user->getElementsByTagName(
+                $members[$id]["club_city"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[12]->textContent;
+                )[12]->textContent);
                 //  club region
-                $members[$id]["club_region"] = $user->getElementsByTagName(
+                $members[$id]["club_region"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[13]->textContent;
+                )[13]->textContent);
                 //  members type and number
-                $members[$id]["card_number"] = $user->getElementsByTagName(
+                $members[$id]["card_number"] = $this->replaceWithStandardSpace($user->getElementsByTagName(
                     "td",
-                )[14]->textContent;
+                )[14]->textContent);
             }
         }
 
