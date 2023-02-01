@@ -30,7 +30,7 @@ final class QueryTest extends TestCase
 
         foreach ($info as $member) {
 
-            $this->assertStringStartsWith("SANTAGATI", $member["name"]);
+            $this->assertStringStartsWith("SANTAGATI SALVATORE", $member["name"]);
             $this->assertIsBool($member['isRookie']);
             $this->assertIsNumeric($member['year_subscribe']);
             $this->assertIsString($member["category"]);
