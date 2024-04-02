@@ -77,7 +77,7 @@ class Query
     {
         $row = $this->dom
             ->getElementsByTagName("table")
-            ->item(6)
+            ->item(4)
             ->getElementsByTagName("td");
 
 
@@ -98,7 +98,7 @@ class Query
     {
         $row = $this->dom
             ->getElementsByTagName("table")
-            ->item(6)
+            ->item(4)
             ->getElementsByTagName("tr");
 
         $members = [];

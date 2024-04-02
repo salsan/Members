@@ -34,8 +34,7 @@ final class QueryTest extends TestCase
             $this->assertIsBool($member['isRookie']);
             $this->assertIsNumeric($member['year_subscribe']);
             $this->assertIsString($member["category"]);
-            $this->assertEmpty($member["province"]);
-            $this->assertStringContainsString("SICILIA", $member["region"]);
+            $this->assertStringContainsString("CT", $member["province"]);
             $this->assertStringContainsString("ITA", $member["citizenship"]);
             $this->assertIsNumeric($member["club_id"]);
         }
