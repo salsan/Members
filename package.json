@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "Test": "vendor\\bin\\phpunit",
+    "Linter": "vendor\\bin\\phpcs --standard=ruleset.xml ./src -v",
+    "Beautifier": "vendor\\bin\\phpcbf --standard=ruleset.xml ./src -v"
+  },
+  "name": "members",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salsan/Members.git"
+  },
+  "author": "Salvatore Santagati",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salsan/Members/issues"
+  },
+  "homepage": "https://github.com/salsan/Members#readme"
+}
