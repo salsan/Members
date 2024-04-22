@@ -9,8 +9,8 @@ use Salsan\Members;
 final class QueryTest extends TestCase
 {
     private $paramters = array(
-        'id' => '165714',
-        'membershipYear' => '2022'
+        'idx' => '165714',
+        'membershipYear' => '2022',
     );
 
     public function testInit(): object
