@@ -63,6 +63,14 @@ class Form
 
     public function getDirection(): array
     {
-        return ($this->getArray("'senso'", $this->dom));
+        $xpath = new \DOMXPath($this->dom);
+        $direction = $xpath->evaluate("//*[contains(@name, 'senso')]//@value");
+        $result = [];
+
+        foreach ($direction as $valueNode) {
+            $result[$valueNode->nodeValue] = $valueNode->nodeValue;
+        }
+
+        return ($result);
     }
 }
