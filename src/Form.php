@@ -10,14 +10,13 @@ use Salsan\Utils\DOM\DOMDocumentTrait;
 
 class Form
 {
-
     use DOMOptionTrait;
     use DOMDocumentTrait;
 
     private DOMDocument $dom;
-    private string $url = "https://www.federscacchi.it/str_tess.php";
+    private string $url = "https://www.federscacchi.com/fsi/index.php/struttura/tesserati";
 
-    function __construct()
+    public function __construct()
     {
         $this->dom = $this->getHTML($this->url, null);
     }
