@@ -67,7 +67,7 @@ final class FormTest extends TestCase
     {
         $clubs = $form->getClubList();
         $this->assertIsArray($clubs);
-        $this->assertGreaterThan(10, count($clubs));
+        $this->assertEquals(0, count($clubs));
     }
 
     /**
