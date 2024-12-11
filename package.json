@@ -2,7 +2,8 @@
   "scripts": {
     "Test": "vendor\\bin\\phpunit",
     "Linter": "vendor\\bin\\phpcs --standard=ruleset.xml ./src -v",
-    "Beautifier": "vendor\\bin\\phpcbf --standard=ruleset.xml ./src -v"
+    "Beautifier": "vendor\\bin\\phpcbf --standard=ruleset.xml ./src -v",
+    "Analysis Static": ".\\vendor\\bin\\phpstan analyse src --level=max"
   },
   "name": "members",
   "directories": {
