@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Salsan\Members;
+namespace Salsan\Members\Fsi;
 
 use Salsan\Utils\String\HiddenSpaceTrait;
 use Salsan\Utils\DOM\DOMDocumentTrait;
@@ -17,6 +17,11 @@ class Query
     private DOMDocument $dom;
     private string $url = "https://www.federscacchi.com/fsi/index.php/struttura/tesserati";
 
+    /**
+     *
+     * @param array<string, string> $params
+     * @return void
+     */
     public function __construct(array $params)
     {
         $this->dom = new DOMDocument();
@@ -62,6 +67,9 @@ class Query
         $this->dom = $this->getHTML($this->url, null);
     }
 
+    /**
+     * @return array<string>
+     */
     public function getNumber(): array
     {
         $xpath = new DOMXPath($this->dom);
@@ -81,7 +89,10 @@ class Query
         return $members;
     }
 
-    public function getList(): iterable
+    /**
+     * @return array<string, array<string, bool|string>>
+     */
+    public function getList(): array
     {
         $xpath = new DOMXPath($this->dom);
         $total_rows = $xpath->evaluate('count(//tr[@bgcolor="#03A83A"]/following-sibling::tr)');
