@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 
 use PHPUnit\Framework\TestCase;
-use Salsan\Members;
+use Salsan\Members\Fsi;
 
-final class QueryTest extends TestCase
+final class FsiQueryTest extends TestCase
 {
     private $paramters = array(
         'idx' => '165714',
@@ -15,7 +15,7 @@ final class QueryTest extends TestCase
 
     public function testInit(): object
     {
-        $members = new Members\Query($this->paramters);
+        $members = new Fsi\Query($this->paramters);
         $this->assertIsObject($members);
 
         return $members;

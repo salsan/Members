@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Salsan\Members;
+use Salsan\Members\Fsi;
 
-final class FormTest extends TestCase
+final class FsiFormTest extends TestCase
 {
     public function testInit(): object
     {
-        $form = new Members\Form();
+        $form = new Fsi\Form();
         $this->assertIsObject($form);
 
         return $form;
